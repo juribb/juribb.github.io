@@ -1,40 +1,26 @@
+{% if page.title %}
+{% capture title %}{{ page.title }} | {{ site.title }}{% endcapture %}
+{% else %}
+{% capture title %}{{ site.title }}{% endcapture %}
+{% endif %}
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>{{ title }}</title>
+  {% include google_analytics.html %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="{{ site.user.name }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% unless site.plugins contains "jekyll-seo-tag" %}
-    <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}" media="all">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}"
+    href="{{ '/feed.xml' | relative_url }}" />
 
-    {% if page.description %}
-      <meta name="Description" content="{{ page.description }}">
-    {% endif %}
-  {% endunless %}
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{{ site.favicon | relative_url }}" type="image/x-icon" />
+  <link rel="icon" href="{{ site.favicon | relative_url }}" type="image/x-icon" />
 
-  <link rel="shortcut icon" href="{{ 'favicon.ico' | relative_url }}" type="image/x-icon">
-
-  <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-default.css' | relative_url }}">
-
-  {% if site.ga_tracking != nil %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_tracking }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', '{{ site.ga_tracking }}'{% unless site.ga_tracking_anonymize_ip == nil %}, { 'anonymize_ip': true }{% endunless %});
-    </script>
-
-  {% endif %}
-
-  {% if site.search_enabled != false %}
-    <script type="text/javascript" src="{{ '/assets/js/vendor/lunr.min.js' | relative_url }}"></script>
-  {% endif %}
-  <script type="text/javascript" src="{{ '/assets/js/just-the-docs.js' | relative_url }}"></script>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  {% seo %}
-
-  {% include head_custom.html %}
-
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,400i" rel="stylesheet">
 </head>
