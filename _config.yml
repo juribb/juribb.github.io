@@ -9,6 +9,7 @@ description: > # this means to ignore newlines until "baseurl"
 baseurl: # the subpath of the site
 url: https://juribb.github.io/ # the base hostname & protocol for your site
 
+
 permalink: /:year-:month/:title
 timezone:
 
@@ -17,12 +18,12 @@ favicon: /assets/img/favicon.ico
 google_analytics: #UA—XXXXXXXX-X
 disqus_shortname: #disqus shortname
 
-user: https://juribb.github.io/
+user:
   name: jr_log
   pic: /assets/img/cat.jpg
   picAlt: "catbook"
   job: Web Developer
-  aboutme: false # comment this out if you don't need the 'about' page.
+  aboutme: true # comment this out if you don't need the 'about' page.
 
 exclude:
   - README.md
