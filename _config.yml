@@ -17,7 +17,7 @@ favicon: /assets/img/favicon.ico
 google_analytics: #UA—XXXXXXXX-X
 disqus_shortname: #disqus shortname
 
-user:https://juribb.github.io/aboutme.html
+user: https://juribb.github.io/
   name: jr_log
   pic: /assets/img/cat.jpg
   picAlt: "catbook"
